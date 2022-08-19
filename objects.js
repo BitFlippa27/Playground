@@ -11,3 +11,22 @@ var object1 = function(){
 }
 
 console.log(object1);
+
+const array = [
+  {
+    title: "hats"
+  },
+  {
+    title: "sneakers"
+  },
+]
+
+const aMap = {
+  title: array
+}
+
+aMap.title = "Franz";
+
+console.log(aMap)
+
+
