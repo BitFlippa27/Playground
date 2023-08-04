@@ -1,7 +1,14 @@
-var isEqual = require("lodash.isequal");
 
+const array1 = [1,55,454,90,3];
 
+console.log(array1[array1.length -1]);
 
-const array1 = [{name:"hans"}, {name:"franzi"}];
-const array2 = [{name:"hans"}, {name:"franz"}];
-console.log(!isEqual(array1, array2));
+for(let i=0;i<array1.length;i++) {
+  console.log("i", array1[i])
+  console.log("i++", array1[i+1])
+  console.log("i--", array1[i-1])
+
+}
+
+console.log("second last item", array1[array1.length -2])
+console.log("last index", array1[-1])
