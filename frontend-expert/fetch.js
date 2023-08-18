@@ -121,5 +121,4 @@ async function abortedRequest() {
     console.log(error);
   }
 }
-
 abortedRequest();
