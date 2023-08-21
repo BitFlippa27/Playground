@@ -27,6 +27,11 @@ const aMap = {
 
 aMap.title = "Franz";
 
-console.log(aMap)
+//console.log(aMap)
+
+const questionsByCategories = {};
+
+questionsByCategories["html"].push({name: "elliot"});
+console.log(questionsByCategories);
 
 

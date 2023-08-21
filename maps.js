@@ -1,3 +1,9 @@
+// Map is represented as an two Element Array
+
+const mapExample = new Map(
+  ["CSS", question]
+);
+
 const BUTTON_TYPE_CLASSES = {
   base: "base",
   google: "google-sign-in",
