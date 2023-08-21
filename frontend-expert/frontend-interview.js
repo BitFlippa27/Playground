@@ -60,6 +60,7 @@ function groupQuestionsByCategory(questions) {
       questionsByCategory.set(question.category, [question]);
     }
   }
+  
   return questionsByCategory;
 }
 
