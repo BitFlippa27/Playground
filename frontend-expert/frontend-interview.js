@@ -115,6 +115,5 @@ function fetchAndDisplay() {
     console.log(categoryWrapper)
   }
 }
-
 fetchAndDisplay();
 
