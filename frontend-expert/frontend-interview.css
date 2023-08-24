@@ -6,3 +6,15 @@
 .column {
   flex: 33%;
 }
+
+.correct {
+  color: green;
+}
+
+.partially-correct {
+  color: orange;
+}
+
+.incorrect {
+  color: red;
+}
