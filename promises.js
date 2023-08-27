@@ -36,6 +36,8 @@ resolvedPromise
 
 
 //waits untill all promises are resolved
+// its is so to say part time async because we wait for all to settle before we continue
+//useful when async code relies on another
 Promise.all([   //returns an promise as array with all the values from all promises
     Promise.resolve(34),
     Promise.resolve(33),

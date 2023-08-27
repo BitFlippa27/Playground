@@ -1,4 +1,4 @@
-const shouldRunCode = true;
+const shouldRunCode = null;
 
 function logWorld() {
   console.log("hllooooo");

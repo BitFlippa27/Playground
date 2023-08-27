@@ -45,6 +45,7 @@ const submissionsRaw =
 
 ];
 
+
 async function getQuestionsAndSubmissions() {
   try {
     //const subRes = await fetch(SUBMISSION_API);
@@ -85,9 +86,11 @@ function getQuestionsByCategory(questionsRaw) {
 
 function getSubmissionsByID(submissionsRaw) {
   const submissionsByID = {};
+  const submissionCount = {};
 
   for (submission of submissionsRaw) {
     submissionsByID[submission.questionId] = submission.status;
+
   }
   console.log(submissionsByID);
   return submissionsByID;
@@ -125,16 +128,16 @@ function getSubmissionsByID(submissionsRaw) {
 </div>
 */
 
-function createCategoryDiv(category, questions, submissionsByID) {
+function createCategoryDiv(category, questions, submissionsByID) {  
   const categoryDiv = document.createElement("div");
   categoryDiv.classList.add("category");
   categoryDiv.classList.add("column");
-  const categoryNameH2 = document.createElement("h2");
-  categoryNameH2.textContent = category;
-  categoryDiv.append(categoryNameH2);
-  
 
+  let submissionCount = 0;
+  
+  //in FetchAndDisplay loop, in each category loop through every question
   for (question of questions) {
+
     const questionDiv = document.createElement("div");
     questionDiv.classList.add("question");
     const submissionDiv = document.createElement("div");
@@ -143,6 +146,10 @@ function createCategoryDiv(category, questions, submissionsByID) {
     
     const statusClass = submissionsByID[question.id]?.toLowerCase().replace("_", "-");
     submissionDiv.classList.add(statusClass ?? "unattempted"); //undefinded or null -> if there is no status
+   
+    if (submissionsByID[question.id] === "CORRECT") {
+      submissionCount++;
+    }
 
     questionDiv.append(submissionDiv);
     const questionDivH3 = document.createElement("h3");
@@ -151,6 +158,11 @@ function createCategoryDiv(category, questions, submissionsByID) {
     categoryDiv.append(questionDiv);
   }
 
+  const categoryNameH2 = document.createElement("h2");
+  categoryNameH2.textContent = category;
+  categoryDiv.prepend(categoryNameH2);
+  categoryNameH2.textContent = `${category} - ${submissionCount} / ${questions.length}`
+  
   return categoryDiv;
 
 }
@@ -160,13 +172,9 @@ function fetchAndDisplay() {
   // const [questions, submissions] = await fetchQuestionsAndSubmissions();
   const questionsByCategory = getQuestionsByCategory(questionsRaw); //getQuestionsByCategory(questions)
   const submissionsByID = getSubmissionsByID(submissionsRaw); // getQuestionByID(submissions)
-
+  //iterate through every category
   for (const [category, questions] of Object.entries(questionsByCategory)) {
     const categoryDiv = createCategoryDiv(category, questions, submissionsByID);
-    console.log(categoryDiv);
-
-    //const categoryWrapper = document.createElement("div");
-    //categoryWrapper.classList.add("row");
     const categoryWrapper = document.getElementById("row");
     document.body.append(categoryWrapper);
     categoryWrapper.append(categoryDiv);

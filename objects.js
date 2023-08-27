@@ -31,7 +31,9 @@ aMap.title = "Franz";
 
 const questionsByCategories = {};
 
-questionsByCategories["html"].push({name: "elliot"});
+questionsByCategories["html"] = [];
+questionsByCategories["html"].push({name: "Fruten"});
+questionsByCategories.css = "Krkrk"
 console.log(questionsByCategories);
 
 
