@@ -19,7 +19,7 @@ const querySnapshot = [
     },
   }
 ];
-
+//group category items
 const categoryMap = querySnapshot.reduce((acc, docSnapshot) => {
   for (let [categoryName, category] of Object.entries(docSnapshot)) {
     const { title, items } = category;
