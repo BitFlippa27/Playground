@@ -1,3 +1,7 @@
+const func: (a: string, b: number, c: boolean) => void = (a, b, c) => {}
+
+
+
 type CanadianAddress = {
   street: string;
   province: string;
